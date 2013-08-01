@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Reptiles :: Official Match Probability Calculator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <!-- Latest compiled and minified CSS -->
+        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="navbar navbar-static-top">
+            <a class="navbar-brand" href="#">Reptiles</a>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Offi Probability Calculator</a></li>
+            </ul>
+        </div>
+
+        <div class="container">
+
+            <form>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <fieldset>
+                            <legend>Team A</legend>
+                            <div class="form-group">
+                                <label for="a_members">Team A members</label>
+                                <input type="text" class="form-control" id="a_members" placeholder="Enter number of members">
+                            </div>
+                            <div class="form-group">
+                                <label for="a_probability">Team A member presence probability</label>
+
+
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="a_probability" placeholder="Enter percentage"><span class="input-group-addon">%</span>
+                                </div>
+                                <p class="help-block">Enter the probability percentage that a random player of Team A is online at a random point of time and available for offi.</p>
+                            </div>
+                        </fieldset>
+
+                    </div>
+                    <div class="col-lg-6">              
+                        <fieldset>
+
+                            <legend>Team B</legend>
+                            <div class="form-group">
+                                <label for="b_members">Team B members</label>
+                                <input type="text" class="form-control" id="â_members" placeholder="Enter number of members">
+                            </div>
+                            <div class="form-group">
+                                <label for="b_probability">Team B member presence probability</label>
+
+
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="b_probability" placeholder="Enter percentage"><span class="input-group-addon">%</span>
+                                </div>
+                                <p class="help-block">Enter the probability percentage that a random player of Team B is online at a random point of time and available for offi.</p>
+                            </div>
+
+                        </fieldset>
+
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn btn-default btn-block">Submit</button>
+            </form>
+        </div>
+
+        <!-- JavaScript plugins (requires jQuery) -->
+        <script src="http://code.jquery.com/jquery.js"></script>
+    </body>
+</html>
