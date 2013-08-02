@@ -1,4 +1,4 @@
 offiProbCalc
 ============
 
-BZFlag Official Probability Calculation
+BZFlag Official-Match Probability Calculation
