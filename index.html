@@ -27,34 +27,34 @@
                             <legend>Team A</legend>
                             <div class="form-group">
                                 <label for="a_members">Team A members</label>
-                                <input type="text" class="form-control" id="a_members" placeholder="Enter number of members">
+                                <input type="text" class="form-control" id="a_members" placeholder="Enter number of members" value="4">
                             </div>
                             <div class="form-group">
                                 <label for="a_probability">Team A member presence probability</label>
 
 
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="a_probability" placeholder="Enter percentage"><span class="input-group-addon">%</span>
+                                    <input type="text" class="form-control" id="a_probability" placeholder="Enter percentage" value="50"><span class="input-group-addon">%</span>
                                 </div>
                                 <p class="help-block">Enter the probability percentage that a random player of Team A is online at a random point of time and available for offi.</p>
                             </div>
                         </fieldset>
 
                     </div>
-                    <div class="col-lg-6">              
+                    <div class="col-lg-6">
                         <fieldset>
 
                             <legend>Team B</legend>
                             <div class="form-group">
                                 <label for="b_members">Team B members</label>
-                                <input type="text" class="form-control" id="b_members" placeholder="Enter number of members">
+                                <input type="text" class="form-control" id="b_members" placeholder="Enter number of members" value="5">
                             </div>
                             <div class="form-group">
                                 <label for="b_probability">Team B member presence probability</label>
 
 
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="b_probability" placeholder="Enter percentage"><span class="input-group-addon">%</span>
+                                    <input type="text" class="form-control" id="b_probability" placeholder="Enter percentage" value="50"><span class="input-group-addon">%</span>
                                 </div>
                                 <p class="help-block">Enter the probability percentage that a random player of Team B is online at a random point of time and available for offi.</p>
                             </div>
@@ -65,60 +65,54 @@
 
                 </div>
 
-                <button type="submit" class="btn btn-default btn-block">Submit</button>
+                <!-- <button type="submit" class="btn btn-default btn-block">Submit</button> -->
             </form>
-			<div id="res"></div>
+            <div class="lead" style="font-weight: normal; padding-top:20px; text-align: center;">The probability that an official match can be played between team A and B at a random point of time is <span id="res" style="font-weight:bold">none</span>.</div>
         </div>
 
         <!-- JavaScript plugins (requires jQuery) -->
         <script src="http://code.jquery.com/jquery.js"></script>
-		<script>
-			function calculate() {
+        <script>
+            function calculate() {
 
-// Team A
+                // Team A
 
-var am = parseInt($("#a_members").val());
-var ap = parseFloat($("#a_probability").val())/100.0;
-// probability that 0 members are online
-var ap0o = Math.pow(1-ap, am);
-// probability that 1 member is online
-var ap1o = am * ( Math.pow(1-ap, am-1) * ap );
+                var am = parseInt($("#a_members").val());
+                var ap = parseFloat($("#a_probability").val()) / 100.0;
+                // probability that 0 members are online
+                var ap0o = Math.pow(1 - ap, am);
+                // probability that 1 member is online
+                var ap1o = am * (Math.pow(1 - ap, am - 1) * ap);
 
-var bm = parseInt($("#b_members").val());
-var bp = parseFloat($("#b_probability").val())/100.0;
-// probability that 0 members are online
-var bp0o = Math.pow(1-bp, bm);
-// probability that 1 member is online
-var bp1o = bm * ( Math.pow(1-bp, bm-1) * bp );
-
-
-$("#res").text(parseFloat((1-(ap1o+ap0o)) * (1-(bp1o+bp0o))));
-//$("#mark2").text(parseInt(secmark));
-
-//alert(ap0o+ap1o);
+                var bm = parseInt($("#b_members").val());
+                var bp = parseFloat($("#b_probability").val()) / 100.0;
+                // probability that 0 members are online
+                var bp0o = Math.pow(1 - bp, bm);
+                // probability that 1 member is online
+                var bp1o = bm * (Math.pow(1 - bp, bm - 1) * bp);
 
 
-}
+                $("#res").text(parseFloat(parseInt(1000 * (1 - (ap1o + ap0o)) * (1 - (bp1o + bp0o)))/10) + "%");
+                //$("#mark2").text(parseInt(secmark));
+
+                //alert(ap0o+ap1o);
 
 
+            }
 
 
+            calculate();
+            $("button").click(function() {
+                calculate();
+            });
+            $("form").change(function() {
+                calculate();
+            });
+            $("input").keyup(function() {
+                calculate();
+            });
 
-
-
-
-calculate();
-$("button").click(function() {
-calculate();
-});
-$("form").change(function() {
-calculate();
-});
-$("input").keyup(function() {
-calculate();
-});
-
-</script>
+        </script>
 
     </body>
 </html>
