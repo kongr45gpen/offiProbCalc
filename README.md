@@ -1,4 +1,4 @@
 offiProbCalc
 ============
 
-BZFlag Official-Match Probability Calculation
+BZFlag official league match probability calculator
